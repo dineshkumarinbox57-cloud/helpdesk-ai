@@ -1,0 +1,55 @@
+POST http://localhost:8080/tickets
+Content-Type: application/json
+
+{
+  "title": "Login Issue",
+  "description": "Unable to login to application",
+  "status": "OPEN"
+} 
+
+###
+
+POST http://localhost:8080/auth/login
+Content-Type: application/json
+
+{
+  "email": "dinesh@test.com",
+  "password": "123456"
+}
+
+###
+PUT http://localhost:8080/tickets/1/status?status=IN_PROGRESS
+
+###
+POST http://localhost:8080/ai/feedback?sessionId=1&resolved=true
+
+###
+POST http://localhost:8080/ai/feedback?sessionId=1&resolved=false
+
+###
+POST http://localhost:8080/tickets
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkaW5lc2hAdGVzdC5jb20iLCJpYXQiOjE3ODA0Njk2NTksImV4cCI6MTc4MDU1NjA1OX0.ohccDTnasR2Bp4w7XkTSnxZIMNcLI3doOkzoWqR-4tc"
+Content-Type: application/json
+
+{
+  "title":"VPN Issue",
+  "description":"VPN not connecting",
+  "status":"OPEN"
+}
+
+###
+GET http://localhost:8080/tickets
+Authorization: Bearer "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkaW5lc2hAdGVzdC5jb20iLCJpYXQiOjE3ODA0NzAyMjcsImV4cCI6MTc4MDU1NjYyN30.TgmXw-oObEWwq9PMXTzwF4wRwxA6gyHUVVP_m9vxd5E"
+
+###
+POST http://localhost:8080/ai/troubleshoot
+Content-Type: application/json
+
+{
+  "description":"VPN not connecting"
+}
+
+GET http://localhost:8080/dashboard
+Authorization: "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkaW5lc2hAdGVzdC5jb20iLCJpYXQiOjE3ODA0NzAyMjcsImV4cCI6MTc4MDU1NjYyN30.TgmXw-oObEWwq9PMXTzwF4wRwxA6gyHUVVP_m9vxd5E"
+
+GET http://localhost:8080/ai/sessions

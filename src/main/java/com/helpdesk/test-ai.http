@@ -1,0 +1,7 @@
+POST http://localhost:8080/ai/troubleshoot
+Content-Type: application/json
+
+{
+  "title": "VPN Issue",
+  "description": "Unable to connect VPN"
+}

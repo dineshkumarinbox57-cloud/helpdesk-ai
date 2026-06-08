@@ -1,0 +1,38 @@
+POST http://localhost:8080/tickets
+Content-Type: application/json
+
+{
+  "title": "Login Issue",
+  "description": "Unable to login to application",
+  "status": "OPEN"
+} 
+
+###
+
+POST http://localhost:8080/auth/login
+Content-Type: application/json
+
+{
+  "email": "dinesh@test.com",
+  "password": "123456"
+}
+
+###
+PUT http://localhost:8080/tickets/1/status?status=IN_PROGRESS
+
+###
+POST http://localhost:8080/ai/feedback?sessionId=1&resolved=true
+
+###
+POST http://localhost:8080/ai/feedback?sessionId=1&resolved=false
+
+###
+POST http://localhost:8080/tickets
+Authorization: Bearer "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkaW5lc2hAdGVzdC5jb20iLCJpYXQiOjE3ODA0NjQ4MTAsImV4cCI6MTc4MDU1MTIxMH0.tG7XsWGM1hhe9yXylXJKra3z5Blt6SyAdvA3BIRXB"
+Content-Type: application/json
+
+{
+  "title":"VPN Issue",
+  "description":"VPN not connecting",
+  "status":"OPEN"
+}
